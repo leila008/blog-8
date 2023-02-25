@@ -1,0 +1,31 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a href="{% url 'index'%}" class="navbar-brand">Lelo</a>
+        <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav">
+                <a href="{%url 'about'%}" class="nav-item nav-link active">Hakkinda</a>
+                <a href="{%url 'articles'%}" class="nav-item nav-link active">Makaleler</a>
+            </div>
+            <ul class="navbar-nav ml-auto">
+            {% if request.user.is_authenticated %}
+            <li class="nav-item active">
+                <a href="{%url 'dashboard' %}" class="nav-link">Kontrol Paneli</a>
+            </li>
+            <li class="nav-item active">
+                <a href="{%url 'user:logout'%}" class="nav-link">Cikis Yap</a>
+            </li>
+            {% else %}
+            <li class="nav-item active">
+                <a href="{%url 'user:login'%}" class="nav-link">Giris Yap</a>
+            </li>
+            {% endif %}
+            <li class="nav-item active">
+                <a href="{% url 'user:register' %}" class="nav-link">Kayit Ol</a>
+            </li>
+        </ul>
+        </div>
+    </div>
+</nav>

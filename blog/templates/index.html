@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block body %}
+<div class="jumbotron text-center">
+    <h3>Qaranliq dunyama xos geldiniz</h3>
+    <p>Beynim qeder qarisiq bir mekan</p>
+</div>
+<p>
+    {% if request.user.is_authenticated %}
+          Giris Yapilmis, {{request.user.username}}
+    {% else %}
+          Giris Yapilmamis
+    {% endif %}
+</p>
+{% endblock  %}
